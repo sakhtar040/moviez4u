@@ -1,0 +1,10 @@
+.videoUpload {
+	border: 5px dotted #fcba03;
+	height: 400px;
+}
+.videoImage {
+	padding-top: 100px;
+}
+#otherDetailsDiv {
+	display: none;
+}

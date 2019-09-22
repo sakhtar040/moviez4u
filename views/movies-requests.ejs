@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include includes/header %>
+		<!-- Custom styles for this template -->
+		<link href="/css/dashboard.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<%- include includes/navbar %>
+
+		<div class="container-fluid">
+			<div class="row">
+				<%- include includes/sidebar %>
+
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+					<div
+						class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
+					>
+						<h1 class="h2">Movies Requests</h1>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-striped table-sm">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Name</th>
+									<th>Email</th>
+									<th>Movie</th>
+									<th>Comment</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>Shahbaz Akhtar</td>
+									<td>shahbaz@gmail.com</td>
+									<td>John Wick 3</td>
+									<td>Please Upload John Wick 3 asap.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</main>
+			</div>
+		</div>
+
+		<%- include includes/footer %>
+	</body>
+</html>

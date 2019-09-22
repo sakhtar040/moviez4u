@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include includes/header %>
+		<!-- Custom styles for this template -->
+		<link href="/css/dashboard.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/css/videoUpload.css" />
+		<link rel="stylesheet" type="text/css" href="/css/lightpick.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+		<script src="/js/lightpick.js"></script>
+		<!-- <link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
+		/> -->
+	</head>
+
+	<body>
+		<%- include includes/navbar %>
+
+		<div class="container-fluid">
+			<div class="row">
+				<%- include includes/sidebar %>
+
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+					<div
+						class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
+					>
+						<h1 class="h2">Add Tv Series</h1>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<form
+								action="/add-tv-series"
+								method="post"
+								enctype="multipart/form-data"
+							>
+								<div class="form-group videoUpload" id="videoSourceDiv">
+									<label class="w-100 mx-auto">
+										<input
+											type="file"
+											name="source"
+											class="form-control-file"
+											id="source"
+											hidden
+											accept="video/mp4"
+										/>
+										<img
+											class="mx-auto mb-3 img-fluid d-block videoImage"
+											src="/images/upload.png"
+											height="130"
+											width="130"
+											alt="Upload"
+										/>
+										<p class="mx-auto text-center">
+											<span class="select text-warning">
+												Select video to upload
+											</span>
+											<br />
+											<span class="drag text-success">
+												or drag it here.
+											</span>
+										</p>
+									</label>
+								</div>
+								<div id="otherDetailsDiv">
+									<div class="form-group">
+										<label for="exampleFormControlFile2">Thumbnail</label>
+										<input
+											type="file"
+											name="thumbnail"
+											class="form-control-file"
+											id="exampleFormControlFile2"
+											accept="image/png, image/jpg, image/jpeg"
+										/>
+									</div>
+									<div class="form-group">
+										<label for="formGroupExampleInput">Name</label>
+										<input
+											type="text"
+											class="form-control"
+											id="formGroupExampleInput"
+											placeholder="Enter Name"
+											name="name"
+										/>
+									</div>
+									<div class="form-group">
+										<label for="formGroupExampleInput">Release Date</label>
+										<input
+											type="text"
+											class="form-control"
+											id="datepicker"
+											placeholder="Select Release Date"
+											name="releaseDate"
+										/>
+									</div>
+									<div class="form-group">
+										<label for="formGroupExampleInput2">Casts</label>
+										<input
+											type="text"
+											class="form-control"
+											id="formGroupExampleInput2"
+											placeholder="Enter Casts"
+											name="casts"
+										/>
+									</div>
+									<div class="form-group">
+										<label for="formGroupExampleInput2">Directors</label>
+										<input
+											type="text"
+											class="form-control"
+											id="formGroupExampleInput2"
+											placeholder="Enter Directors"
+											name="directors"
+										/>
+									</div>
+									<div class="form-group">
+										<label for="formGroupExampleInput2">Genre</label>
+										<input
+											type="text"
+											class="form-control"
+											id="formGroupExampleInput2"
+											placeholder="Enter Genre"
+											name="genre"
+										/>
+									</div>
+									<div class="form-group">
+										<label for="formGroupExampleInput2">IMDB Link</label>
+										<input
+											type="text"
+											class="form-control"
+											id="formGroupExampleInput2"
+											placeholder="Enter IMDB Link"
+											name="imdb"
+										/>
+									</div>
+									<div class="mb-3">
+										<label for="validationTextarea">Description</label>
+										<textarea
+											class="form-control"
+											id="validationTextarea"
+											placeholder="Enter Short Description"
+											name="desc"
+											required
+										></textarea>
+									</div>
+									<div class="form-group">
+										<label for="validationTextarea">Quality</label>
+										<select class="custom-select" name="quality">
+											<option value="">Select Quality</option>
+											<option value="0">HD</option>
+											<option value="1">CAM</option>
+											<option value="2">DvdRip</option>
+										</select>
+									</div>
+									<input
+										type="submit"
+										name="submit"
+										value="Submit"
+										class="btn btn-dark float-right mb-3"
+									/>
+								</div>
+							</form>
+						</div>
+					</div>
+				</main>
+			</div>
+		</div>
+
+		<%- include includes/footer %>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+		 --><script>
+			$(document).ready(function() {
+				let videoSource = $("#source");
+				let videoDiv = $("#videoSourceDiv");
+				let otherDiv = $("#otherDetailsDiv");
+
+				videoSource.on("change", function(event) {
+					console.log("Now Uploading...");
+					videoDiv.css("display", "none");
+					otherDiv.css("display", "block");
+				});
+			});
+		</script>
+
+		<script>
+			var picker = new Lightpick({
+				field: document.getElementById("datepicker")
+			});
+		</script>
+
+		<!-- <script type="text/javascript">
+			$(function() {
+				$("#datepicker").datetimepicker();
+			});
+		</script> -->
+	</body>
+</html>
